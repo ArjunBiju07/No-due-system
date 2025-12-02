@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-import Login from "./admin/Login";
+import Admin_login from "./admin/Admin_login";
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login/>}></Route>
+        <Route path="/" element={<Admin_login/>}></Route>
       </Routes>
     </BrowserRouter>
   )
