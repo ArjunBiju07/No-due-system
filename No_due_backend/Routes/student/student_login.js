@@ -1,32 +1,27 @@
-const express = require('express');
-const db = require('../../Database/db');
+const express = require("express");
+const db = require("../../Database/db");
 const router = express.Router();
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     const { adno, password } = req.body;
 
-    if (!adno || !password) {
-        return res.status(400).json({ message: "Admission No and Password required" });
-    }
-
     const sql = "SELECT * FROM st_registration WHERE adno = ? AND password = ?";
-
     db.query(sql, [adno, password], (err, result) => {
-        if (err) {
-            console.error("Database Error:", err);
-            return res.status(500).json({ message: "Database error" });
+         if(err){
+            console.error("Database error: ", err);
+            return res.send({success:false,message:"Error in database"});
         }
 
-        // If no user found
-        if (result.length === 0) {
-            return res.status(401).json({ message: "Invalid Admission Number or Password" });
-        }
+        if(result.length > 0){
+            return res.send({success: true,
+                 message: "Login successful"});
 
-        // Login Success
-        return res.json({
-            message: "Login successful",
-            user: result[0]   // sending user data
-        });
+        }else{
+            return res.send({
+                success: false,
+                message: "Invalid username or password",
+            })
+        }
     });
 });
 
