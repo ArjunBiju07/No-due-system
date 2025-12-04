@@ -31,7 +31,7 @@ function Header() {
         </div>
 
         {/* Links */}
-        <div className="link-bar d-flex align-items-center gap-2">
+        {/* <div className="link-bar d-flex align-items-center gap-2">
           <span><ion-icon name="home" style={{ color: "white" }}></ion-icon></span>
           <a href="/" className="text-decoration-none small text-white">Home</a>
 
@@ -40,7 +40,11 @@ function Header() {
 
           <span><ion-icon name="call" style={{ color: "white" }}></ion-icon></span>
           <a href="/contact" className="text-decoration-none small text-white">Contact</a>
-        </div>
+
+          <span><ion-icon name="call" style={{ color: "white" }}></ion-icon></span>
+          <a href="/contact" className="text-decoration-none small text-white">Profile</a>
+
+        </div> */}
       </div>
 
       {/* Title */}

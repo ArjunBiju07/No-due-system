@@ -19,7 +19,7 @@ function Student_login() {
         .then((data)=>{
             if(data.success){
                 alert('Login successfull');
-                navigate('/');
+                navigate('/student_dashboard');
             }else{
                 alert(data.message || 'Invalid username or password')
             }

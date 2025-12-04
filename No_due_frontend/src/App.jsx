@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import Admin_login from "./admin/Admin_login";
 import Student_login from "./student/Student_login";
+import Student_dashboard from "./student/Student_dashboard";
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Admin_login/>}></Route>
-        <Route path="/student_login" element={<Student_login/>}></Route>
+        <Route path="/" element={<Admin_login />}></Route>
+        <Route path="/student_login" element={<Student_login />}></Route>
+        <Route path="/student_dashboard" element={<Student_dashboard />}></Route>
       </Routes>
     </BrowserRouter>
   )
