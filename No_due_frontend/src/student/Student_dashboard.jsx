@@ -1,42 +1,43 @@
-import React from 'react'
-import Student_header from './Student_header'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import Student_header from "./Student_header";
+import { useNavigate } from "react-router-dom";
 
 function Student_dashboard() {
-    const navigate  = useNavigate();
-    const Apply = ()=>{
-        navigate("/")
-    }
+  const navigate = useNavigate();
+
+  const Apply = () => {
+    navigate("/student_applynodue");
+  };
+
+  const Status = () => {
+    navigate("/student_status");
+  };
+
   return (
-   <div className="layout">
-            {/* <Sidebar /> */}
+    <div className="layout">
+      <div className="main-area">
+        <Student_header />
 
-            <div className="main-area">
-                <Student_header />
+        <div className="main-content d-flex flex-column justify-content-center align-items-center p-4">
 
-                <div className="main-content">
-                        <center>
+          {/* Heading */}
+          <h1 className="mb-4 text-center">Student Dashboard</h1>
 
-                    <h1> Student Dashboard</h1>
-                    <table>
-                        <tr>
-                            <td><button
-                                onClick={Apply}
-                            >
+          {/* Buttons */}
+          <div className="d-flex justify-content-center gap-3 flex-wrap mt-3">
+            <button className="btn btn-primary btn-lg px-4" onClick={Apply}>
+              Apply for No Due
+            </button>
 
-                                Apply for no due</button>
-                                </td>
-
-                            <td><button>Check your no due status</button></td>
-
-                        </tr>
-                    </table>
-                        </center>
-                </div>
-            </div>
+            <button className="btn btn-success btn-lg px-4" onClick={Status}>
+              Check No Due Status
+            </button>
+          </div>
         </div>
-  )
+
+      </div>
+    </div>
+  );
 }
 
-export default Student_dashboard
+export default Student_dashboard;

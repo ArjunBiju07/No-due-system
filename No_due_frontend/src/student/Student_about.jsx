@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../Header'
+import Student_header from './Student_header'
 
 function Student_about() {
     return (
@@ -7,10 +7,10 @@ function Student_about() {
             {/* <Sidebar /> */}
 
             <div className="main-area">
-                <Header />
+                <Student_header />
 
                 <div className="main-content">
-
+                    <h1>About</h1>
                 </div>
             </div>
         </div>
