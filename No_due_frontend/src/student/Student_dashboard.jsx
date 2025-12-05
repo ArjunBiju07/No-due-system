@@ -5,14 +5,6 @@ import { useNavigate } from "react-router-dom";
 function Student_dashboard() {
   const navigate = useNavigate();
 
-  const Apply = () => {
-    navigate("/student_applynodue");
-  };
-
-  const Status = () => {
-    navigate("/student_status");
-  };
-
   return (
     <div className="layout">
       <div className="main-area">
@@ -25,11 +17,11 @@ function Student_dashboard() {
 
           {/* Buttons */}
           <div className="d-flex justify-content-center gap-3 flex-wrap mt-3">
-            <button className="btn btn-primary btn-lg px-4" onClick={Apply}>
+            <button className="btn btn-primary btn-lg px-4" onClick={()=>navigate("/student_applynodue")}>
               Apply for No Due
             </button>
 
-            <button className="btn btn-success btn-lg px-4" onClick={Status}>
+            <button className="btn btn-success btn-lg px-4" onClick={()=>navigate("/student_status")}>
               Check No Due Status
             </button>
           </div>

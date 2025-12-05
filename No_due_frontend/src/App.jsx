@@ -12,6 +12,8 @@ import Student_contact from "./student/Student_contact";
 import Student_profile from "./student/Student_profile";
 import Student_applynodue from "./student/Student_applynodue";
 import Student_status from "./student/Student_status";
+import Student_complete from "./student/Student_complete";
+import Student_drop from "./student/Student_drop";
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
         <Route path="/student_profile" element={<Student_profile />}></Route>
         <Route path="/student_applynodue" element={<Student_applynodue />}></Route>
         <Route path="/student_status" element={<Student_status />}></Route>
+        <Route path="/student_complete" element={<Student_complete />}></Route>
+        <Route path="/student_drop" element={<Student_drop />}></Route>
       </Routes>
     </BrowserRouter>
   )

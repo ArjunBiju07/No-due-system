@@ -7,11 +7,11 @@ function Student_applynodue() {
   const navigate = useNavigate();
 
   const complete = () => {
-    navigate("/student_dashboard");
+    navigate("/student_complete");
   }
 
   const drop = () => {
-    navigate("/student_about");
+    navigate("/student_drop");
   }
 
   return (
