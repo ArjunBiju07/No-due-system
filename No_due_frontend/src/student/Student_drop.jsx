@@ -1,19 +1,19 @@
 import React from 'react'
 import Student_header from './Student_header'
 
-function Student_about() {
-    return (
-        <div className="layout">
+function Student_drop() {
+  return (
+    <div className="layout">
 
             <div className="main-area">
                 <Student_header />
 
                 <div className="main-content">
-                    <h1>About</h1>
+                    <h1>drop</h1>
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
-export default Student_about
+export default Student_drop

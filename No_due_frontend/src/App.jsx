@@ -8,6 +8,8 @@ import Admin_login from "./admin/Admin_login";
 import Student_login from "./student/Student_login";
 import Student_dashboard from "./student/Student_dashboard";
 import Student_about from "./student/Student_about";
+import Student_contact from "./student/Student_contact";
+import Student_profile from "./student/Student_profile";
 import Student_applynodue from "./student/Student_applynodue";
 import Student_status from "./student/Student_status";
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/student_login" element={<Student_login />}></Route>
         <Route path="/student_dashboard" element={<Student_dashboard />}></Route>
         <Route path="/student_about" element={<Student_about />}></Route>
+        <Route path="/student_contact" element={<Student_contact />}></Route>
+        <Route path="/student_profile" element={<Student_profile />}></Route>
         <Route path="/student_applynodue" element={<Student_applynodue />}></Route>
         <Route path="/student_status" element={<Student_status />}></Route>
       </Routes>

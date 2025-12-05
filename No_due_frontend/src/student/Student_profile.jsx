@@ -1,7 +1,7 @@
 import React from 'react'
-import Student_header from './Student_header'
+import Student_header from './Student_header';
 
-function Student_status() {
+function Student_profile() {
   return (
     <div className="layout">
             {/* <Sidebar /> */}
@@ -10,11 +10,11 @@ function Student_status() {
                 <Student_header />
 
                 <div className="main-content">
-                    <h1>status</h1>
+                    <h1>Profile</h1>
                 </div>
             </div>
         </div>
   )
 }
 
-export default Student_status
+export default Student_profile

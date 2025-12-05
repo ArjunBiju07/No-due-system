@@ -31,8 +31,8 @@ function Student_header() {
         <div className="link-bar d-flex align-items-center gap-2">
           <a href="/student_dashboard" className="text-decoration-none small text-white">Home</a>
           <a href="/student_about" className="text-decoration-none small text-white">About</a>
-          <a href="/contact" className="text-decoration-none small text-white">Contact</a>
-          <a href="/contact" className="text-decoration-none small text-white">Profile</a>
+          <a href="/student_contact" className="text-decoration-none small text-white">Contact</a>
+          <a href="/student_profile" className="text-decoration-none small text-white">Profile</a>
         </div>
       </div>
 
