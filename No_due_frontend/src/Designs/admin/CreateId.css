@@ -1,138 +1,270 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-        body {
-            background: #f5f7ff;
-            
-        }
-
-        .add-tutor-card {
-    background: #fffdfd;
-     backdrop-filter: blur(10px);
-    width: 60%;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin: 14px auto 40px auto; /* Top space added */
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+/* Page Wrapper */
+.page {
+  min-height: 100vh;
+  background: #f3f6ff;
+  padding-bottom: 60px;
+  transition: 0.3s;
+}
 
-        .card-title {
-            font-size: 22px;
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+/* ========== DARK MODE ========== */
+.dark-mode {
+  background: #0f172a;
+}
 
-        .input-group {
-            display: block;
-            gap: 20px;
-        }
+.dark-mode .add-tutor-card,
+.dark-mode .table-container {
+  background: #1e293b;
+  color: white;
+}
 
-        .input-box {
-            position: relative;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+.dark-mode input {
+  background: #0f172a;
+  color: white;
+  border: 1px solid #475569;
+}
 
-        .input-box input {
-            width: 100%;
-            padding: 14px 10px 6px 10px;
-            font-size: 16px;
-            border: 1px solid #a7a7a7;
-            background: #fafafa;
-            border-radius: 8px;
-            outline: none;
-        }
+.dark-mode label,
+.dark-mode p,
+.dark-mode h2 {
+  color: white;
+}
 
-        .input-box label {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            color: #555;
-            transition: 0.2s ease;
-            pointer-events: none;
-        }
+.dark-mode table thead {
+  background: #475569;
+}
 
-       
-        .input-box input:focus + label,
-        .input-box input:not(:placeholder-shown) + label {
-            top: -8px;
-            font-size: 12px;
-            color: #1E3A8A;
-            background: #f5f7ff;
-            padding: 0 5px;
-        }
-            .button-box{
-            display: flex;
-            gap : 10px; 
-            }
+.dark-mode .Back ion-icon {
+  color: white;
+}
 
-        .button-box button {
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border: none;
-            background: #003ffbff;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-        }
+/* ========== DARK MODE BUTTON ========== */
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #003ffb;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000;
+}
 
-        .button-box button:hover {
-            background: #2558e4ff;
-        }
+/* ========== CARD ========== */
+.add-tutor-card {
+  width: 60%;
+  background: white;
+  padding: 25px;
+  margin: 80px auto 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-        .table-container {
-            width: 80%;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+/* Responsive */
+@media (max-width: 900px) {
+  .add-tutor-card {
+    width: 80%;
+  }
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+@media (max-width: 600px) {
+  .add-tutor-card {
+    width: 95%;
+    padding: 18px;
+  }
+}
 
-        table thead {
-            background: #eef1ff;
-        }
+/* ========== HEADINGS ========== */
+.card-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1E3A8A;
+}
 
-        table th, table td {
-            padding: 14px;
-            font-size: 15px;
-            border-bottom: 1px solid #ddd;
-        }
+.table-title,
+.duty-title {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #1E3A8A;
+}
 
-        table th {
-            font-weight: 600;
-        }
+.dark-mode .card-title {
+  color: white;
+}
 
-        
-        .Back {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            text-align: center;
-        }
+/* ========== INPUTS ========== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-        .Back ion-icon {
-            font-size: 26px;
-            color: black;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.input-box {
+  position: relative;
+}
 
-        .Back ion-icon:hover {
-            color: #888;
-        }}
+.input-box input {
+  width: 100%;
+  padding: 14px 10px 6px;
+  border-radius: 8px;
+  border: 1px solid #a7a7a7;
+  background: #fafafa;
+  font-size: 16px;
+}
+
+.input-box label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  background: white;
+  padding: 0 6px;
+  color: #1E3A8A;
+}
+
+.dark-mode .input-box input:focus + label,
+.dark-mode .input-box input:not(:placeholder-shown) + label {
+  background: #1e293b;
+}
+
+/* ========== TOGGLE CHECKBOX ========== */
+.i-checkbox {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 10px 0 20px;
+}
+
+.check {
+  background: #e7e9f3;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+.dark-mode .check {
+  background: #334155;
+}
+
+.check label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.check input {
+  display: none;
+}
+
+.check span {
+  width: 40px;
+  height: 20px;
+  background: #bf9292;
+  border-radius: 20px;
+  position: relative;
+}
+
+.check span::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.check input:checked + span {
+  background: #1E3A8A;
+}
+
+.check input:checked + span::before {
+  transform: translateX(20px);
+}
+
+/* ========== BUTTONS ========== */
+.button-box {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-box button {
+  width: 140px;
+  padding: 12px;
+  background: #003ffb;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .button-box button {
+    width: 100%;
+  }
+}
+
+/* ========== TABLE ========== */
+.table-container {
+  width: 80%;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead {
+  background: #eef1ff;
+}
+
+table th,
+table td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ========== BACK BUTTON ========== */
+.Back {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.Back ion-icon {
+  font-size: 28px;
+  color: black;
+}
