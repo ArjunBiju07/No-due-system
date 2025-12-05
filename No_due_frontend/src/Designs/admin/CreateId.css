@@ -1,0 +1,138 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        body {
+            background: #f5f7ff;
+            
+        }
+
+        .add-tutor-card {
+    background: #fffdfd;
+     backdrop-filter: blur(10px);
+    width: 60%;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 14px auto 40px auto; /* Top space added */
+}
+
+
+        .card-title {
+            font-size: 22px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .input-group {
+            display: block;
+            gap: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 14px 10px 6px 10px;
+            font-size: 16px;
+            border: 1px solid #a7a7a7;
+            background: #fafafa;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .input-box label {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #555;
+            transition: 0.2s ease;
+            pointer-events: none;
+        }
+
+       
+        .input-box input:focus + label,
+        .input-box input:not(:placeholder-shown) + label {
+            top: -8px;
+            font-size: 12px;
+            color: #1E3A8A;
+            background: #f5f7ff;
+            padding: 0 5px;
+        }
+            .button-box{
+            display: flex;
+            gap : 10px; 
+            }
+
+        .button-box button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            background: #003ffbff;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .button-box button:hover {
+            background: #2558e4ff;
+        }
+
+        .table-container {
+            width: 80%;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background: #eef1ff;
+        }
+
+        table th, table td {
+            padding: 14px;
+            font-size: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            font-weight: 600;
+        }
+
+        
+        .Back {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            text-align: center;
+        }
+
+        .Back ion-icon {
+            font-size: 26px;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .Back ion-icon:hover {
+            color: #888;
+        }}

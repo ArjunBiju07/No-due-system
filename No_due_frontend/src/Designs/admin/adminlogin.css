@@ -1,0 +1,146 @@
+/* ====== GLOBAL RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== PAGE BACKGROUND ====== */
+body {
+  background: #0f172a;
+}
+
+/* ====== LOGIN SECTION (BELOW HEADER) ====== */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 110px;              /* ✅ Push below header */
+  padding-bottom: 40px;
+
+  width: 100vw;
+  min-height: calc(100vh - 110px); /* ✅ Prevents overlap */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px); */
+
+  overflow: hidden;
+}
+
+/* ====== LOGIN BOX ====== */
+.login-box {
+  width: 400px;
+  padding: 35px;
+
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ====== HEADING ====== */
+.login-box h1 {
+  color: #1E3A8A;
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+/* ====== INPUT CONTAINER ====== */
+.details {
+  position: relative;
+  width: 300px;
+  margin: 25px 0;
+  border-bottom: 2px solid #000;
+}
+
+/* ====== INPUT FIELD ====== */
+.details input {
+  width: 100%;
+  padding: 12px 5px 8px 0;
+  border: none;
+  outline: none;
+  font-size: 16px;
+
+  background: transparent;
+  color: black;
+}
+
+/* ====== FLOATING LABEL ====== */
+.details label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 16px;
+  color: #1E3A8A;
+  pointer-events: none;
+
+  transition: 0.2s ease-in-out;
+}
+
+/* ====== LABEL ANIMATION ====== */
+.details input:focus + label,
+.details input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* ====== ICON ====== */
+.icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 1.2rem;
+  color: black;
+}
+
+/* ====== REMEMBER & FORGOT ====== */
+.remember-forgot {
+  width: 300px;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1E3A8A;
+}
+
+/* ====== LOGIN BUTTON ====== */
+button {
+  padding: 10px 90px;
+  margin-top: 30px;
+
+  font-size: 16px;
+  color: black;
+
+  background: transparent;
+  border: 1px solid #ffd1d1;
+  border-radius: 40px;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* ====== BUTTON HOVER ====== */
+button:hover {
+  background: linear-gradient(to right, #db820d, #db490a);
+  color: white;
+  text-transform: uppercase;
+}
