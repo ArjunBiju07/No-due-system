@@ -7,7 +7,7 @@
 
 /* ====== PAGE BACKGROUND ====== */
 body {
-  background: #0f172a;
+  background: #5485e8;
 }
 
 /* ====== LOGIN SECTION (BELOW HEADER) ====== */
@@ -15,20 +15,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  margin-top: 110px;              /* ✅ Push below header */
+  margin-top: 10px;              /* ✅ Push below header */
   padding-bottom: 40px;
-
   width: 100vw;
   min-height: calc(100vh - 110px); /* ✅ Prevents overlap */
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px); */
-
+  backdrop-filter: blur(5px);
   overflow: hidden;
 }
 
@@ -36,13 +30,10 @@ section {
 .login-box {
   width: 400px;
   padding: 35px;
-
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-
   box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
   backdrop-filter: blur(10px);
-
   display: flex;
   flex-direction: column;
   align-items: center;

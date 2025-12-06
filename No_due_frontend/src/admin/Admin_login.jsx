@@ -68,20 +68,16 @@ function Admin_login() {
               </span>
             </div>
 
-            <div className="remember-forgot">
+            {/* <div className="remember-forgot">
               <label>
                 <input type="checkbox" /> Remember me
               </label>
               <a href="#" className="forgot-link">
                 Forgot password?
               </a>
-            </div>
+            </div> */}
 
             <button type="submit">Login</button>
-
-            <p className="login-footer-text">
-              No Due Admin Panel
-            </p>
 
           </div>
           <div>

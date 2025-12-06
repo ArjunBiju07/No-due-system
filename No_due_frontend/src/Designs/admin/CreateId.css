@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Page Wrapper */
@@ -14,56 +14,11 @@
   transition: 0.3s;
 }
 
-/* ========== DARK MODE ========== */
-.dark-mode {
-  background: #0f172a;
-}
-
-.dark-mode .add-tutor-card,
-.dark-mode .table-container {
-  background: #1e293b;
-  color: white;
-}
-
-.dark-mode input {
-  background: #0f172a;
-  color: white;
-  border: 1px solid #475569;
-}
-
-.dark-mode label,
-.dark-mode p,
-.dark-mode h2 {
-  color: white;
-}
-
-.dark-mode table thead {
-  background: #475569;
-}
-
-.dark-mode .Back ion-icon {
-  color: white;
-}
-
-/* ========== DARK MODE BUTTON ========== */
-.dark-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #003ffb;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  z-index: 1000;
-}
 
 /* ========== CARD ========== */
 .add-tutor-card {
-  width: 60%;
-  background: white;
+  width: 80%;
+  background: rgb(198, 197, 197);
   padding: 25px;
   margin: 80px auto 40px;
   border-radius: 15px;
@@ -148,8 +103,6 @@
 .dark-mode .input-box input:not(:placeholder-shown) + label {
   background: #1e293b;
 }
-
-/* ========== TOGGLE CHECKBOX ========== */
 .i-checkbox {
   display: flex;
   justify-content: center;
@@ -207,7 +160,6 @@
   transform: translateX(20px);
 }
 
-/* ========== BUTTONS ========== */
 .button-box {
   display: flex;
   gap: 15px;
@@ -231,8 +183,6 @@
     width: 100%;
   }
 }
-
-/* ========== TABLE ========== */
 .table-container {
   width: 80%;
   background: white;
@@ -256,8 +206,6 @@ table td {
   padding: 14px;
   border-bottom: 1px solid #ddd;
 }
-
-/* ========== BACK BUTTON ========== */
 .Back {
   position: fixed;
   bottom: 20px;
