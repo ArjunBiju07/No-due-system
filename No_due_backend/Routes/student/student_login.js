@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/", (req, res) => {
     const { adno, password } = req.body;
 
-    const sql = "SELECT * FROM st_registration WHERE adno = ? AND password = ?";
+    const sql = "SELECT * FROM students WHERE admission_no = ? AND password = ?";
     db.query(sql, [adno, password], (err, result) => {
          if(err){
             console.error("Database error: ", err);
