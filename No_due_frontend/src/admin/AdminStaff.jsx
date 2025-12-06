@@ -49,26 +49,6 @@ const handleSubmit = async (e) => {
     alert("An error occurred. Please try again.");
   }
 };
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   fetch("http://localhost:3000/Staff/insert", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify({ name, username, duty }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       alert(data.message);
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error", err);
-  //       alert("An error occurred. Please try again.");
-  //     });
-  // };
   return (
     <>
       <Header />
@@ -140,26 +120,12 @@ const handleSubmit = async (e) => {
               </button>
             </div>
           </div>
-        </form>
-      </div>
-      <div className="table-container">
-        <h2 className="table-title">STAFF LIST</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
       <div className="Back">
-        <Link to="/admin/Home">
+        <Link to="/Staff/List">Staff list
           <ion-icon name="home"></ion-icon>
         </Link>
+      </div>
+        </form>
       </div>
     </>
   );
