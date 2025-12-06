@@ -6,14 +6,6 @@ function Student_applynodue() {
 
   const navigate = useNavigate();
 
-  const complete = () => {
-    navigate("/student_complete");
-  }
-
-  const drop = () => {
-    navigate("/student_drop");
-  }
-
   return (
     <div className="layout">
       {/* <Sidebar /> */}
@@ -28,11 +20,11 @@ function Student_applynodue() {
 
           {/* Buttons */}
           <div className="d-flex justify-content-center gap-3 flex-wrap mt-3">
-            <button className="btn btn-danger btn-lg px-4" onClick={complete}>
+            <button className="btn btn-success btn-lg px-4" onClick={()=>navigate('/student_complete')}>
               Course Completed
             </button>
 
-            <button className="btn btn-danger btn-lg px-4" onClick={drop} >
+            <button className="btn btn-danger btn-lg px-4" onClick={()=>navigate('/student_drop')} >
               Course Droping
             </button>
           </div>

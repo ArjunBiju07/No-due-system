@@ -7,28 +7,32 @@ function Student_login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-   const handleLogin = (e)=>{
-        e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-        fetch('http://localhost:3000/login',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({adno,password}),
-        })
-        .then((response)=>response.json())
-        .then((data)=>{
-            if(data.success){
-                alert('Login successfull');
-                navigate('/student_dashboard');
-            }else{
-                alert(data.message || 'Invalid username or password')
-            }
-        })
-        .catch((err)=>{
-            console.log('Login error',err);
-            alert('Something went wrong.Please try again');
-        });
-    }  
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adno, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+
+        if (data.success) {
+          alert(data.message);
+          navigate('/student_dashboard');
+        }
+
+        else {
+          alert(data.message);
+        }
+
+      })
+      .catch((err) => {
+        console.log('Login error', err);
+        alert('Something went wrong.Please try again');
+      });
+  }
   return (
     <div className="layout">
       {/* <Sidebar /> */}
@@ -52,7 +56,7 @@ function Student_login() {
                           className="form-control"
                           placeholder="Enter Admission Number"
                           value={adno}
-                          onChange={(e)=>setAdno(e.target.value)}
+                          onChange={(e) => setAdno(e.target.value)}
                         />
                       </div>
 
@@ -63,7 +67,7 @@ function Student_login() {
                           className="form-control"
                           placeholder="Enter Password"
                           value={password}
-                          onChange={(e)=>setPassword(e.target.value)}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
 

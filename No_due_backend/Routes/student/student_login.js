@@ -4,7 +4,12 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
     const { adno, password } = req.body;
-
+    if (!adno || !password) {
+        return res.send({
+            success: false,
+            message: "Admission number and password are required",
+        });
+    }
     const sql = "SELECT * FROM students WHERE admission_no = ? AND password = ?";
     db.query(sql, [adno, password], (err, result) => {
          if(err){
