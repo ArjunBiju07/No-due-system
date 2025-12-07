@@ -2,6 +2,7 @@ import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import "../Designs/admin/CreateId.css";
+import { toast } from "react-toastify";
 function StaffList() {
     const [name , setName]=useState([]);
    
@@ -13,6 +14,34 @@ function StaffList() {
         console.log("Error feacthing", error)
       })
     },[])
+   const handleDelete = (ida) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    if (!confirmDelete) return;
+
+    fetch("http://localhost:3000/Staff/Delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: ida }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success(data.message);
+
+          // ✅ Remove user instantly from UI
+         setName((prev) => prev.filter((user) => user.id !== ida));
+
+        } else {
+          toast.error("Delete failed. Please try again");
+        }
+      })
+      .catch((error) => {
+        console.log("Delete error", error);
+        toast.error("Server error while deleting");
+      });
+  };
   return (
     <div>
         <Header />
