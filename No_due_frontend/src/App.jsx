@@ -6,11 +6,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
 import Admin_login from "./admin/Admin_login"; // import hari
 import AdminHome from "./admin/AdminHome";  {/*import hari */}
-import AdminTutor from "./admin/AdminTutor";  {/*import hari */}
 import AdminStaff from "./admin/AdminStaff";  {/*import hari */}
 
 import StaffList from "./admin/StaffList";
@@ -28,7 +25,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Admin_login />} />  {/*import hari */}
         <Route path='/admin/Home' element={<AdminHome />} />  {/*import hari */}
-        <Route path='/admin/Tutor' element={<AdminTutor />} /> {/*import hari */}
         <Route path='/admin/Staff' element={<AdminStaff />} />    {/*import hari */}   
        <Route path="/Staff/List" element={<StaffList />} />   {/*staffList */}
 
