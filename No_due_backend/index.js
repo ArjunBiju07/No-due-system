@@ -8,6 +8,10 @@ const Insert_staff = require("./Routes/admin/admin_staff");
 const StaffList=require("./Routes/admin/staff_list");
 const StaffDelete=require("./Routes/admin/staff_delete");
 const DutyInsert=require("./Routes/admin/Duties/Duty_insert");
+const DutyView=require("./Routes/admin/Duties/Duty_view");
+
+const DutyDlete=require("./Routes/admin/Duties/duty_delete");
+
 app.use(express.json());
 app.use(cors());
 
@@ -17,8 +21,10 @@ app.use('/Staff/Insert', Insert_staff);
 app.use('/Staff/List',StaffList);
 app.use('/Staff/Delete',StaffDelete)
 app.use('/Duty/Insert',DutyInsert);
-
+app.use('/Duty/List',DutyView);
+app.use('/Duty/Delete',DutyDlete);
 
 app.listen(3000, () => {
     console.log("Server is up ")
 });
+

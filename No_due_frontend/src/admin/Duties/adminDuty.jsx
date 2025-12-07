@@ -68,12 +68,13 @@ const handleSubmit = async (e) => {
                 CLEAR
               </button>
             </div>
-      <div className="Back">
-        <Link to="/Duty/List">Staff list
-          <ion-icon name="home"></ion-icon>
-        </Link>
-      </div>
         </form>
+      </div>
+<div className="Direction">
+        
+        <Link to="/Duty/List" className="a design">
+         <h1>DUTY LIST</h1>
+        </Link>
       </div>
     </>
   );

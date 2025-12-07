@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Admin_login from "./admin/Admin_login"; // import hari
 import AdminHome from "./admin/AdminHome";  {/*import hari */}
-import AdminStaff from "./admin/AdminStaff";  {/*import hari */}
-import StaffList from "./admin/StaffList";
-
+import AdminStaff from "./admin/AdminStaffView";  {/*import hari */}
+import StaffList from "./admin/AdminStaffList";
 import DutyAdd from "./admin/Duties/adminDuty";
+import DutyList from "./admin/Duties/Dutie_view";
 
 import Student_login from "./student/Student_login";
 import Student_dashboard from "./student/Student_dashboard";
@@ -34,7 +34,7 @@ function App() {
        <Route path="/Staff/List" element={<StaffList />} />   
 
         <Route path="/Admin/Duty" element={<DutyAdd />} />
-        
+        <Route path="/Duty/List" element={<DutyList />} />
         <Route path="/student_login" element={<Student_login />} />
         <Route path="/student_dashboard" element={<Student_dashboard />} />
       </Routes>

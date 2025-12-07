@@ -170,13 +170,44 @@
 .button-box button {
   width: 140px;
   padding: 12px;
-  background: #003ffb;
+  background: #0040ff;
   color: white;
   border-radius: 8px;
   font-weight: bold;
   border: none;
   cursor: pointer;
 }
+.delete-btn {
+  background: linear-gradient(135deg, #ff4d4d, #d63031); /* red danger */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;        /* ✅ fully rounded */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0px 4px 10px rgba(214, 48, 49, 0.3);
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #ff6b6b, #e17055);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(214, 48, 49, 0.5);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 6px rgba(214, 48, 49, 0.3);
+}
+
+/* ✅ Disabled state (optional) */
+.delete-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 
 @media (max-width: 600px) {
   .button-box button {
@@ -184,6 +215,7 @@
   }
 }
 .table-container {
+  padding-bottom: 12%;
   width: 80%;
   background: white;
   border-radius: 15px;
@@ -215,4 +247,92 @@ table td {
   font-weight: 500;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
+.Direction {
+    display: grid;
+    padding: 10px;
+    /* Responsive columns: at least 200px wide, max 1 fraction unit */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ================= 4. SECTION TITLES (Full Width Spanning) ================= */
+.Direction .Description {
+    /* Forces this element to span from the first column line to the last */
+    grid-column: 1 / -1; 
+    color: #E91429;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: #E91429 2px solid;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================= 5. CARD DESIGN ================= */
+.Direction a {
+    display: block;
+    height: 180px;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Direction a:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.Direction a h1 {
+    color: rgb(255, 253, 253);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    width: 100%;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+/* Decorative shape in corner */
+.Direction a::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.2);
+    bottom: -15px;
+    right: -15px;
+    transform: rotate(25deg);
+    border-radius: 12px;
+    box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.Direction a:hover::after {
+    transform: rotate(250deg) scale(1.1);
+}
+
+/* ================= 6. COLORS ================= */
+/* You need to use the CSS class name 'a' in your JSX for these selectors to work correctly. */
+.Direction .a:nth-of-type(1) { background-color: #E91429; } /* Red */
+.Direction .a:nth-of-type(2) { background-color: #006450; } /* Green */
+.Direction .a:nth-of-type(3) { background-color: #BC5900; } /* Orange */
+.Direction .a:nth-of-type(4) { background-color: #fc0202; } /* Bright Red */
+.Direction .a:nth-of-type(5) { background-color: #1E3264; } /* Navy */
+.Direction .a:nth-of-type(6) { background-color: #509BF5; } /* Light Blue */
+.Direction .a:nth-of-type(7) { background-color: #800080; } /* Purple */
+.Direction .a:nth-of-type(8) { background-color: #FF69B4; } /* Pink */
+
 

@@ -45,6 +45,7 @@ function StaffList() {
   return (
     <div>
         <Header />
+          <div className="home">
        <div className="table-container">
         <h2 className="table-title">STAFF LIST</h2>
 
@@ -65,8 +66,8 @@ function StaffList() {
                 <td>{user.username}</td>
                 <td>{user.duty}</td>
                 <td>
-                    <button className="button-box" onClick={() => handleDelete(user.id)}>Delete</button>                   
-                 </td>
+                   <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
+                  </td>
              </tr>
             )
         ):(
@@ -79,6 +80,7 @@ function StaffList() {
 
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   )
