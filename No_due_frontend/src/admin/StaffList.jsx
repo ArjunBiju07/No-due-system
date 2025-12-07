@@ -35,11 +35,9 @@ function StaffList() {
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.duty}</td>
-                <td>Buttons</td>
-                {/* <td>
-                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(user.id)}>Delete</button>                   
-                    <button className='btn btn-warning btn-sm' onClick={() => handleEdit(user.id)} >Edit</button>
-                      </td> */}
+                <td>
+                    <button className="button-box" onClick={() => handleDelete(user.id)}>Delete</button>                   
+                 </td>
              </tr>
             )
         ):(

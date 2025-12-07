@@ -10,15 +10,23 @@ router.post('/',(req,res)=>{
   db.query(sql,[name , password],(err,result)=>{
     if(err){
       console.log("Databse Error",err);
-      return res.json({success : false , message: "Error in database"});
+      return res.status(500).json({
+        success: false,
+        message: "Error in database",
+      });
     }
     if(result.length > 0){
       console.log("Login successful");
-      return res.json({success: true , message: "Login successfully complited"});
+        return res.status(200).json({
+        success: true,
+        message: "Login successfully completed",
+      });
     }
     else{
-      console.log("Invalid username or password");
-      return res.json({success: false , message: "Inavlid username or password"});
+      return res.status(401).json({
+        success: false,
+        message: "Invalid username or password",
+      });
     }
   });
 });

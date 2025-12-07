@@ -2,6 +2,11 @@ import React from "react"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 import Admin_login from "./admin/Admin_login"; // import hari
 import AdminHome from "./admin/AdminHome";  {/*import hari */}
@@ -16,6 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ToastContainer />
       <Routes>
         <Route path="/" element={<Admin_login />} />  {/*import hari */}
         <Route path='/admin/Home' element={<AdminHome />} />  {/*import hari */}
