@@ -22,7 +22,7 @@ function AdminHome() {
 
             {/* Note: I've added the class "a" to Link components to match the CSS nth-of-type selectors */}
             <Link to="/admin/Staff" className="a design"><h1>Create ID</h1></Link>
-            <Link to="/admin/Duties" className="a design"><h1>ADD Duties</h1></Link>
+            <Link to="/Admin/Duty" className="a design"><h1>ADD Duties</h1></Link>
             <Link to="/admin/Department" className="a design"><h1>ADD Department</h1></Link>
             <Link to="/admin/AssignDuties" className="a design"><h1>Assign Duties</h1></Link>
 

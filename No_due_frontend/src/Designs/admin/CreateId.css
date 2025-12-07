@@ -206,13 +206,13 @@ table td {
   padding: 14px;
   border-bottom: 1px solid #ddd;
 }
-/* .Back {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+.Toastify__toast-container {
+  margin-top: 12% !important;   /* ✅ Moves toast below header */
+}
+.Toastify__toast {
+  
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 
-.Back ion-icon {
-  font-size: 28px;
-  color: black;
-} */

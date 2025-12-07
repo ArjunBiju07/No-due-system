@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import "../Designs/admin/CreateId.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminStaff() {
   const [name, setName] = useState("");
@@ -17,10 +19,9 @@ function AdminStaff() {
   };
 const handleSubmit = async (e) => {
   e.preventDefault(); // Prevent page reload
-  console.log({ name, username, duty });
 
   if (!name || !username || duty.length === 0) {
-    alert("Please fill all fields and select at least one duty");
+    toast.warning("Please fill all fieldst");
     return;
   }
 
@@ -33,12 +34,12 @@ const handleSubmit = async (e) => {
 
     if (!res.ok) {
       const errorData = await res.json();
-      alert("Error: " + errorData.err);
+      toast.error("Error: " + errorData.err);
       return;
     }
 
     const data = await res.json();
-    alert(data.message);
+    toast.success(data.message);
 
     // Clear fields after successful submission
     setName("");
@@ -46,7 +47,7 @@ const handleSubmit = async (e) => {
     setDuty([]);
   } catch (err) {
     console.error(err);
-    alert("An error occurred. Please try again.");
+    toast.error("An error occurred. Please try again.");
   }
 };
   return (
