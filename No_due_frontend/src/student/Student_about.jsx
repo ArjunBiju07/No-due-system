@@ -1,5 +1,6 @@
 import React from 'react'
 import Student_header from './Student_header'
+import Footer from '../Footer'
 
 function Student_about() {
     return (
@@ -11,6 +12,7 @@ function Student_about() {
                 <div className="main-content">
                     <h1>About</h1>
                 </div>
+                <Footer />
             </div>
         </div>
     )

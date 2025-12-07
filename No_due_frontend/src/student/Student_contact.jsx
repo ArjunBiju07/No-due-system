@@ -1,5 +1,6 @@
 import React from 'react'
 import Student_header from './Student_header'
+import Footer from '../Footer'
 
 function Student_contact() {
   return (
@@ -12,6 +13,7 @@ function Student_contact() {
                 <div className="main-content">
                     <h1>contact</h1>
                 </div>
+                <Footer />
             </div>
         </div>
   )

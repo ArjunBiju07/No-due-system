@@ -1,5 +1,6 @@
 import React from 'react'
 import Student_header from './Student_header';
+import Footer from '../Footer';
 
 function Student_profile() {
   return (
@@ -12,6 +13,7 @@ function Student_profile() {
                 <div className="main-content">
                     <h1>Profile</h1>
                 </div>
+                <Footer />
             </div>
         </div>
   )

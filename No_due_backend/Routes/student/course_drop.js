@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     const { year, sem, reason } = req.body;
     
     if (!year || !sem || !reason) {
-        return res.status(400).json({ error: "All fields are required" });
+        return res.status(400).json({ message: "All fields are required" });
     }
 
     const sql = "INSERT INTO co_drop(year,sem,reason) VALUES(?,?,?)";

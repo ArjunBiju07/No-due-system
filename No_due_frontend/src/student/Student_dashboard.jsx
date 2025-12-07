@@ -1,5 +1,6 @@
 import React from "react";
 import Student_header from "./Student_header";
+import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 
 function Student_dashboard() {
@@ -26,7 +27,7 @@ function Student_dashboard() {
             </button>
           </div>
         </div>
-
+          <Footer/>
       </div>
     </div>
   );

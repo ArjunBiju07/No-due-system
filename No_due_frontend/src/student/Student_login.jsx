@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header';
+import Footer from '../Footer';
 
 function Student_login() {
+
   const [adno, setAdno] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -85,7 +87,7 @@ function Student_login() {
             </div>
           </div>
         </div>
-
+          <Footer />
       </div>
     </div>
 

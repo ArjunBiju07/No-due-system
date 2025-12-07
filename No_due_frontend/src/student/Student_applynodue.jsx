@@ -1,6 +1,7 @@
 import React from 'react'
 import Student_header from './Student_header'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../Footer';
 
 function Student_applynodue() {
 
@@ -29,6 +30,7 @@ function Student_applynodue() {
             </button>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   )

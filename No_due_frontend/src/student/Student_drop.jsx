@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Student_header from './Student_header'
+import Footer from '../Footer';
 import { useNavigate } from 'react-router-dom'
 
 function Student_drop() {
@@ -30,7 +31,7 @@ function Student_drop() {
                 navigate(-1);
             })
             .catch(err => {
-                alert(err.error);
+                alert("Something went wrong.please try again later".err);
             })
     }
 
@@ -64,6 +65,7 @@ function Student_drop() {
                             <label className="form-label">Semester</label>
                             <select
                                 className="form-select"
+                                required
                                 value={sem}
                                 onChange={(e) => setSem(e.target.value)}
                             >
@@ -98,6 +100,7 @@ function Student_drop() {
                     </form>
 
                 </div>
+                <Footer />
             </div>
         </div>
 
