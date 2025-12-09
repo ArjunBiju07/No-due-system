@@ -4,13 +4,13 @@ import Header from "../../Header";
 import "../../Designs/admin/CreateId.css";
 import { toast } from "react-toastify";
 
-function Dutie_view() {
-    const [viewDuty , setDuty]=useState([]);
+function Year() {
+    const [viewYear , setYear]=useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:3000/Duty/List")
+        fetch("http://localhost:3000/Year/List")
         .then((response)=>response.json())
-        .then((result)=> setDuty(result))
+        .then((result)=> setYear(result))
          .catch((error) => {
         console.log("Error feacthing", error)
       })
@@ -19,7 +19,7 @@ const handleDelete=(ids)=>{
     const ConfirmDelete= window.confirm("Are you sure you want to delete this Duty?");
      if (!ConfirmDelete) return;
 
-     fetch("http://localhost:3000/Duty/Delete",{
+     fetch("http://localhost:3000/Year/Delete",{
         method: "POST",
         headers: {
             'Content-type' : 'application/json'
@@ -30,7 +30,7 @@ const handleDelete=(ids)=>{
      .then((data)=>{
        if(data.success){
         toast.success(data.message)
-        setDuty((prev) => prev.filter((Duty) => Duty.id !== ids));
+        setYear((prev) => prev.filter((acYear) => acYear.id !== ids));
        } else{
         toast.error("Delete failed. Please try again")
        }
@@ -55,12 +55,12 @@ const handleDelete=(ids)=>{
             </tr>
           </thead>
           <tbody>
-            {viewDuty.length > 0 ? 
-            viewDuty.map((Duty)=> (
-             <tr key={Duty.id}>
-                <td>{Duty.duty}</td>
+            {viewYear.length > 0 ? 
+            viewYear.map((acYear)=> (
+             <tr key={acYear.id}>
+                <td>{acYear.year}</td>
                 <td>
-                    <button className="delete-btn" onClick={() => handleDelete(Duty.id)}>Delete</button>                   
+                    <button className="delete-btn" onClick={() => handleDelete(acYear.id)}>Delete</button>                   
                  </td>
              </tr>
             )
@@ -80,4 +80,4 @@ const handleDelete=(ids)=>{
   )
 }
 
-export default Dutie_view
+export default Year

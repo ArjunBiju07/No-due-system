@@ -12,7 +12,7 @@ import AdminStaff from "./admin/AdminStaffView";  {/*import hari */}
 import StaffList from "./admin/AdminStaffList";
 import DutyAdd from "./admin/Duties/adminDuty";
 import DutyList from "./admin/Duties/Dutie_view";
-
+import Year from "./admin/Duties/year";
 import Student_login from "./student/Student_login";
 import Student_dashboard from "./student/Student_dashboard";
  
@@ -32,7 +32,7 @@ function App() {
         <Route path='/admin/Home' element={<AdminHome />} />  
         <Route path='/admin/Staff' element={<AdminStaff />} /> 
        <Route path="/Staff/List" element={<StaffList />} />   
-
+<Route path="/Year/List" element={<Year />} />
         <Route path="/Admin/Duty" element={<DutyAdd />} />
         <Route path="/Duty/List" element={<DutyList />} />
         <Route path="/student_login" element={<Student_login />} />
