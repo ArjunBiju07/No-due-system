@@ -9,7 +9,7 @@ function Student_status() {
 
   const handleSubmit = ()=>{
     alert("Cannot Apply No Due because you have Due");
-    return;
+    // navigate(0);
   }
 
   const handlePdf = () => {
@@ -19,7 +19,7 @@ function Student_status() {
 
   return (
     <div className="layout">
-
+ 
       <div className="main-area">
         <Student_header />
 
@@ -30,7 +30,7 @@ function Student_status() {
             <div className="card-body">
 
               {/* General Labs */}
-              <form onSubmit={handleSubmit}>
+              {/* <form onSubmit={handleSubmit}> */}
 
                 <h4 className="mb-3">General Labs & Facilities</h4>
                 <table className="table table-bordered table-striped">
@@ -80,10 +80,10 @@ function Student_status() {
                 </table>
                 < div className="d-flex justify-content-between">
                   <button type="button" className="btn btn-secondary px-4" onClick={() => navigate(-1)}>Back</button>
-                  <button type="submit" className="btn btn-primary px-4">Apply No Due</button>
+                  <button type="button" className="btn btn-primary px-4" onClick={handleSubmit}>Apply No Due</button>
                   <button type='button' className='btn btn-success px-4' onClick={handlePdf}>Generate PDF</button>
                 </div>
-              </form>
+              {/* </form> */}
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ import Student_status from "./student/Student_status";
 import Student_complete from "./student/Student_complete";
 import Student_drop from "./student/Student_drop";
 
+
 function App() {
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/student_status" element={<Student_status />}></Route>
         <Route path="/student_complete" element={<Student_complete />}></Route>
         <Route path="/student_drop" element={<Student_drop />}></Route>
+     
       </Routes>
     </BrowserRouter>
   )
