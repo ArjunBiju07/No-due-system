@@ -90,7 +90,7 @@ function Student_dashboard() {
           </div>
 
           {/* No Due Status Table */}
-          <div className="card shadow mb-4">
+          {/* <div className="card shadow mb-4">
             <div className="card-body">
               <h4 className="mb-3">No Due Status</h4>
 
@@ -124,7 +124,7 @@ function Student_dashboard() {
           </div>
 
           {/* Approval Summary */}
-          <div className="card shadow mb-4">
+          {/* <div className="card shadow mb-4">
             <div className="card-body">
               <h4 className="mb-3">Approval Status</h4>
 
@@ -143,7 +143,7 @@ function Student_dashboard() {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */} 
 
           {/* Download Section */}
           <div className="text-center mb-4">
