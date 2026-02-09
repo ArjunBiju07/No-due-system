@@ -22,11 +22,11 @@ function Student_login() {
 
         if (data.success) {
 
-          // ✅ STORE SESSION DATA (localStorage)
-          localStorage.setItem("token", data.token || "student-session");
-          localStorage.setItem("username", data.username);   // backend must send this
-          localStorage.setItem("role", "STUDENT");
-          localStorage.setItem("userId", data.studentId);    // backend must send this
+          // // ✅ STORE SESSION DATA (localStorage)
+          // localStorage.setItem("token", data.token || "student-session");
+          // localStorage.setItem("username", data.username);   // backend must send this
+          // localStorage.setItem("role", "STUDENT");
+          // localStorage.setItem("userId", data.studentId);    // backend must send this
 
           alert(data.message);
           navigate('/student_dashboard');
