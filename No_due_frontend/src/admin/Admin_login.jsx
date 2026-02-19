@@ -5,17 +5,17 @@ import Header from '../Header'
 import Footer from '../Footer';
 
 function Admin_login() {
-  const [adno, setAdno] = useState('');
+  const [adminid, setAdminid] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:3000/login', {
+    fetch('http://localhost:3000/admin_login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adno, password }),
+      body: JSON.stringify({ adminid, password }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -50,8 +50,8 @@ function Admin_login() {
                 type="text"
                 className="form-control"
                 placeholder="Enter admin id"
-                value={adno}
-                onChange={(e) => setAdno(e.target.value)}
+                value={adminid}
+                onChange={(e) => setAdminid(e.target.value)}
                 required
               />
             </div>

@@ -3,15 +3,15 @@ const db = require("../../Database/db");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    const { adno, password } = req.body;
-    if (!adno || !password) {
+    const { adminid, password } = req.body;
+    if (!adminid || !password) {
         return res.send({
             success: false,
-            message: "Admission number and password are required",
+            message: "Admin ID and password are required",
         });
     }
     const sql = "SELECT * FROM users WHERE username = ? AND password_hash = ?";
-    db.query(sql, [adno, password], (err, result) => {
+    db.query(sql, [adminid, password], (err, result) => {
          if(err){
             console.error("Database error: ", err);
             return res.send({success:false,message:"Error in database"});
@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
         }else{
             return res.send({
                 success: false,
-                message: "Invalid username or password",
+                message: "Invalid Admin ID or password",
             })
         }
     });
