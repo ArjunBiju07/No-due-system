@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import API from '../../services/api';
-import { GraduationCap, MapPin, ShieldCheck, ArrowRight, AlertCircle, Hash, Building2, CheckCircle, Clock, Camera } from 'lucide-react';
+import { GraduationCap, MapPin, ShieldCheck, ArrowRight, AlertCircle, Hash, Building2, CheckCircle, Clock, Camera, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -91,18 +91,22 @@ const StudentHome = () => {
                 <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
                         <div className="relative group">
-                            <div className="h-24 w-24 rounded-2xl bg-slate-800 border-4 border-slate-900 shadow-xl overflow-hidden flex-shrink-0 relative">
-                                <img 
-                                    src={info.photo || `https://i.pravatar.cc/300?u=${info.id}`} 
-                                    alt="Student" 
-                                    className="h-full w-full object-cover"
-                                />
-                                {uploadingPhoto && (
-                                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center">
-                                        <div className="h-6 w-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                    </div>
-                                )}
-                            </div>
+                                <div className="h-24 w-24 rounded-2xl bg-slate-800 border-4 border-slate-900 shadow-xl overflow-hidden flex-shrink-0 relative flex items-center justify-center text-blue-500 font-bold text-4xl">
+                                    {info.photo ? (
+                                        <img 
+                                            src={info.photo} 
+                                            alt="Student" 
+                                            className="h-full w-full object-cover"
+                                        />
+                                    ) : (
+                                        info.username ? info.username[0].toUpperCase() : <User size={40} />
+                                    )}
+                                    {uploadingPhoto && (
+                                        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center rounded-2xl">
+                                            <div className="h-6 w-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        </div>
+                                    )}
+                                </div>
                             <button
                                 onClick={() => fileInputRef.current?.click()}
                                 disabled={uploadingPhoto}

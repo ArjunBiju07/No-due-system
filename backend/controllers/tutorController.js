@@ -74,6 +74,65 @@ const finalApproval = async (req, res) => {
     }
 };
 
+const saveConductAndApprove = async (req, res) => {
+    const { 
+        student_id, 
+        date_of_admission, 
+        total_working_days, 
+        days_attended, 
+        last_date_of_attendance, 
+        conduct_character, 
+        mentor_recommendation 
+    } = req.body;
+
+    const conn = await pool.getConnection();
+
+    try {
+        await conn.beginTransaction();
+
+        // 1. Check if all duties are cleared
+        const [pending] = await conn.execute(
+            'SELECT * FROM student_clearance_status WHERE student_id = ? AND status != "cleared"',
+            [student_id]
+        );
+
+        if (pending.length > 0) {
+            await conn.rollback();
+            return res.status(400).json({ message: 'All duties must be cleared before final approval' });
+        }
+
+        // 2. Insert or Update conduct record
+        await conn.execute(
+            `INSERT INTO student_conduct 
+            (student_id, date_of_admission, total_working_days, days_attended, last_date_of_attendance, conduct_character, mentor_recommendation) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE 
+            date_of_admission = VALUES(date_of_admission),
+            total_working_days = VALUES(total_working_days),
+            days_attended = VALUES(days_attended),
+            last_date_of_attendance = VALUES(last_date_of_attendance),
+            conduct_character = VALUES(conduct_character),
+            mentor_recommendation = VALUES(mentor_recommendation)`,
+            [student_id, date_of_admission, total_working_days, days_attended, last_date_of_attendance, conduct_character, mentor_recommendation]
+        );
+
+        // 3. Update student status to cleared
+        await conn.execute(
+            'UPDATE students SET current_status = "cleared" WHERE id = ?',
+            [student_id]
+        );
+
+        await conn.commit();
+        res.json({ message: 'Conduct details saved and student cleared successfully' });
+    } catch (error) {
+        await conn.rollback();
+        res.status(500).json({ message: error.message });
+    } finally {
+        if (conn) conn.release();
+    }
+};
+
+
 const getYearDrops = async (req, res) => {
     const userId = req.user.id;
     try {
@@ -174,6 +233,7 @@ module.exports = {
     getAssignedStudents, 
     getStudentClearanceSummary, 
     finalApproval,
+    saveConductAndApprove,
     getYearDrops,
     updateYearDropStatus,
     deleteYearDrop,

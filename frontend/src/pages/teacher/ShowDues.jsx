@@ -209,12 +209,16 @@ const ShowDues = () => {
 
                             <div className="px-8 pb-8">
                                 <div className="relative -mt-16 flex flex-col md:flex-row items-end gap-6 mb-8">
-                                    <div className="h-32 w-32 rounded-3xl bg-slate-800 border-4 border-slate-900 shadow-xl overflow-hidden flex-shrink-0">
-                                        <img 
-                                            src={selectedStudent.photo || `https://i.pravatar.cc/300?u=${selectedStudent.id}`} 
-                                            alt="Student" 
-                                            className="h-full w-full object-cover"
-                                        />
+                                    <div className="h-32 w-32 rounded-3xl bg-slate-800 border-4 border-slate-900 shadow-xl overflow-hidden flex-shrink-0 flex items-center justify-center text-red-500 font-bold text-5xl">
+                                        {selectedStudent.photo ? (
+                                            <img 
+                                                src={selectedStudent.photo} 
+                                                alt="Student" 
+                                                className="h-full w-full object-cover"
+                                            />
+                                        ) : (
+                                            selectedStudent.username ? selectedStudent.username[0].toUpperCase() : <User size={48} />
+                                        )}
                                     </div>
                                     <div className="flex-1 pb-2">
                                         <h3 className="text-3xl font-black text-white">{selectedStudent.username}</h3>

@@ -49,10 +49,23 @@ const ClearanceStatus = () => {
         }
     };
 
-    const handleDownloadPDF = () => {
-        // Simple print-based "download" or placeholder for PDF generation
-        alert('Generating your clearance certificate... Please use your browser Print (Ctrl+P) to save as PDF for now.');
-        window.print();
+    const handleDownloadPDF = async () => {
+        try {
+            const response = await API.get('/student/download-pdf', {
+                responseType: 'blob'
+            });
+            
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `Clearance_${info.register_number}.pdf`);
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+        } catch (err) {
+            alert('Failed to generate PDF. Please try again.');
+            console.error(err);
+        }
     };
 
     const getStatusTheme = (status) => {

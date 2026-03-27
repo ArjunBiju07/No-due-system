@@ -78,18 +78,16 @@ const CreateUser = () => {
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-300 ml-1">User Role</label>
-                                <select 
-                                    name="role" 
-                                    value={selectedRole}
-                                    onChange={(e) => setSelectedRole(e.target.value)}
-                                    className="w-full bg-slate-950 border border-slate-800 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-600 transition-colors appearance-none cursor-pointer" 
-                                    required
-                                >
-                                    <option value="teacher">Faculty</option>
-                                    <option value="tutor">Tutor</option>
-                                    <option value="both">Both (Faculty & Tutor)</option>
-                                    <option value="admin">System Administrator</option>
-                                </select>
+                                    <select 
+                                        name="role" 
+                                        value={selectedRole}
+                                        onChange={(e) => setSelectedRole(e.target.value)}
+                                        className="w-full bg-slate-950 border border-slate-800 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-600 transition-colors appearance-none cursor-pointer" 
+                                        required
+                                    >
+                                        <option value="teacher">Faculty</option>
+                                        <option value="tutor">Tutor</option>
+                                    </select>
                             </div>
                         </div>
 

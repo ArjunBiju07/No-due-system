@@ -24,6 +24,7 @@ import ShowDues from './pages/teacher/ShowDues';
 import TutorOverview from './pages/tutor/TutorOverview';
 import RequestVerification from './pages/tutor/RequestVerification';
 import ApprovedStudents from './pages/tutor/ApprovedStudents';
+import Conduct from './pages/tutor/Conduct';
 
 // Student Pages
 import StudentHome from './pages/student/StudentHome';
@@ -135,6 +136,12 @@ const AppContent = () => {
             <Route path="/tutor/verification" element={
               <ProtectedRoute role="tutor">
                 <RequestVerification />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/tutor/conduct/:student_id" element={
+              <ProtectedRoute role="tutor">
+                <Conduct />
               </ProtectedRoute>
             } />
 

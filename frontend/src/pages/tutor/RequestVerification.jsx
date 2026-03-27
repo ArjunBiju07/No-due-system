@@ -14,7 +14,10 @@ import {
     Search
 } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
+
 const RequestVerification = () => {
+    const navigate = useNavigate();
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
@@ -130,7 +133,7 @@ const RequestVerification = () => {
                                 {req.current_status === 'in_progress' ? (
                                     <>
                                         <button 
-                                            onClick={() => handleAction(req.id, 'cleared')}
+                                            onClick={() => navigate(`/tutor/conduct/${req.id}`)}
                                             className="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors shadow-lg shadow-emerald-600/10"
                                         >
                                             Approve

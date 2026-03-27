@@ -5,6 +5,7 @@ const {
     getAssignedStudents, 
     getStudentClearanceSummary, 
     finalApproval,
+    saveConductAndApprove,
     getYearDrops,
     updateYearDropStatus,
     deleteYearDrop,
@@ -18,6 +19,7 @@ router.get('/stats', getTutorStats);
 router.get('/students', getAssignedStudents);
 router.get('/clearance/:student_id', getStudentClearanceSummary);
 router.post('/final-approval', finalApproval);
+router.post('/conduct-and-approve', saveConductAndApprove);
 
 router.get('/year-drops', getYearDrops);
 router.put('/year-drops/:id', updateYearDropStatus);
