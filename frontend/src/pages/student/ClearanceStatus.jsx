@@ -33,6 +33,14 @@ const ClearanceStatus = () => {
     };
 
     const handleApply = async () => {
+        if (statusData?.info?.year_drop_status === 'pending' || statusData?.info?.year_drop_status === 'approved') {
+            alert('Cannot apply for No Due Certificate while a Course Drop request is active.');
+            return;
+        }
+
+        const confirmSubmit = window.confirm("Are you sure you want to submit your No Due Certificate application?");
+        if (!confirmSubmit) return;
+
         try {
             await API.post('/student/apply');
             fetchStatus();
@@ -113,6 +121,21 @@ const ClearanceStatus = () => {
                             <h3 className="text-red-500 font-black uppercase tracking-widest text-sm mb-1">Application Rejected</h3>
                             <p className="text-slate-300 text-sm font-medium leading-relaxed">
                                 Your previous No Due Certificate request was declined by the tutor. Please review your departmental statuses below, settle any outstanding dues and contact your tutor before resubmitting your application.
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Course Drop Rejection Alert */}
+                {info?.year_drop_status === 'rejected' && (
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-500">
+                        <div className="h-12 w-12 rounded-xl bg-red-500/20 flex items-center justify-center text-red-500 shrink-0">
+                            <AlertCircle size={28} />
+                        </div>
+                        <div className="flex-1 text-center sm:text-left">
+                            <h3 className="text-red-500 font-black uppercase tracking-widest text-sm mb-1">Course Drop Rejected</h3>
+                            <p className="text-slate-300 text-sm font-medium leading-relaxed">
+                                Your previous Course Drop request was declined by the tutor. You can now apply for a standard No Due Certificate once all your departmental dues are settled.
                             </p>
                         </div>
                     </div>
@@ -237,6 +260,14 @@ const ClearanceStatus = () => {
                                 <p className="text-blue-500 font-bold text-lg">Verification In Progress</p>
                                 <p className="text-[10px] text-blue-500/60 uppercase tracking-widest mt-1 font-black leading-tight border-t border-blue-500/10 pt-3">
                                     Your application has been submitted.<br/>Awaiting final verification by Tutor.
+                                </p>
+                            </div>
+                        ) : info.year_drop_status === 'pending' ? (
+                            <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6 text-center">
+                                <Clock className="mx-auto text-orange-500 mb-2" size={32} />
+                                <p className="text-orange-500 font-bold text-lg">Course Drop Pending</p>
+                                <p className="text-[10px] text-orange-500/60 uppercase tracking-widest mt-1 font-black leading-tight border-t border-orange-500/10 pt-3">
+                                    You have a pending Course Drop request.<br/>You cannot apply for No Due Certificate at this time.
                                 </p>
                             </div>
                         ) : (

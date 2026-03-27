@@ -233,9 +233,13 @@ const StudentHome = () => {
                                     <span className="text-slate-400">Identity</span>
                                     <span className="font-medium text-emerald-500">Verified</span>
                                 </div>
-                                <div className="flex justify-between items-center py-2 text-sm">
+                                <div className="flex justify-between items-center py-2 border-b border-slate-800 text-sm">
                                     <span className="text-slate-400">Email linked</span>
                                     <span className="font-medium text-white truncate max-w-[150px]" title={user.email}>{user.email}</span>
+                                </div>
+                                <div className="flex justify-between items-center py-2 text-sm">
+                                    <span className="text-slate-400">Tutor</span>
+                                    <span className="font-medium text-white capitalize">{info.tutor_name || 'Not assigned'}</span>
                                 </div>
                             </div>
                         </div>

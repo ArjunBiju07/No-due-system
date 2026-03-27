@@ -30,7 +30,8 @@ const getMyStatus = async (req, res) => {
 
         const [studentInfo] = await pool.execute(`
             SELECT s.*, u.username, u.email, d.name as department_name, ay.year_range,
-            (SELECT status FROM year_drops WHERE student_id = s.id AND status = 'approved' LIMIT 1) as year_drop_status
+            (SELECT status FROM year_drops WHERE student_id = s.id ORDER BY id DESC LIMIT 1) as year_drop_status,
+            (SELECT tu.username FROM tutor_assignments ta JOIN users tu ON ta.user_id = tu.id WHERE ta.department_id = s.department_id AND ta.academic_year_id = s.academic_year_id LIMIT 1) as tutor_name
             FROM students s
             JOIN users u ON s.user_id = u.id
             JOIN departments d ON s.department_id = d.id
@@ -51,8 +52,17 @@ const applyForClearance = async (req, res) => {
     const userId = req.user.id;
 
     try {
+        const [students] = await pool.execute('SELECT id, current_status FROM students WHERE user_id = ?', [userId]);
+        if (students.length === 0) return res.status(404).json({ message: 'Student not found' });
+        const studentId = students[0].id;
+
+        const [yearDrops] = await pool.execute('SELECT status FROM year_drops WHERE student_id = ? ORDER BY id DESC LIMIT 1', [studentId]);
+        if (yearDrops.length > 0 && ['pending', 'approved'].includes(yearDrops[0].status)) {
+            return res.status(400).json({ message: 'Cannot apply for No Due Certificate while a Course Drop request is active.' });
+        }
+
         await pool.execute(
-            'UPDATE students SET current_status = "in_progress" WHERE user_id = ? AND current_status IN ("pending", "rejected")',
+            'UPDATE students SET current_status = "in_progress" WHERE user_id = ? AND (current_status IN ("pending", "rejected", "") OR current_status IS NULL)',
             [userId]
         );
         res.json({ message: 'Applied for clearance' });
@@ -66,10 +76,15 @@ const submitYearDrop = async (req, res) => {
     const { reason, last_semester, current_year } = req.body;
 
     try {
-        const [students] = await pool.execute('SELECT id FROM students WHERE user_id = ?', [userId]);
+        const [students] = await pool.execute('SELECT id, current_status FROM students WHERE user_id = ?', [userId]);
         if (students.length === 0) return res.status(404).json({ message: 'Student not found' });
 
-        const studentId = students[0].id;
+        const student = students[0];
+        if (['in_progress', 'cleared'].includes(student.current_status)) {
+            return res.status(400).json({ message: 'Cannot apply for Course Drop while a No Due Certificate request is active.' });
+        }
+
+        const studentId = student.id;
 
         await pool.execute(
             'INSERT INTO year_drops (student_id, reason, last_semester, current_year) VALUES (?, ?, ?, ?)',

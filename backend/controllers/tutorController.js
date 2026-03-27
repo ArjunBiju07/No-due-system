@@ -16,7 +16,9 @@ const getAssignedStudents = async (req, res) => {
         const { department_id, academic_year_id } = assignments[0];
 
         const [students] = await pool.execute(`
-            SELECT s.*, u.username, u.email
+            SELECT s.*, u.username, u.email,
+            (SELECT status FROM year_drops WHERE student_id = s.id ORDER BY id DESC LIMIT 1) as year_drop_status,
+            (SELECT id FROM year_drops WHERE student_id = s.id ORDER BY id DESC LIMIT 1) as year_drop_id
             FROM students s
             JOIN users u ON s.user_id = u.id
             WHERE s.department_id = ? AND s.academic_year_id = ?

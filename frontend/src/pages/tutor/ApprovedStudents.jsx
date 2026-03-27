@@ -23,8 +23,8 @@ const ApprovedStudents = () => {
     const fetchApproved = async () => {
         try {
             const { data } = await API.get('/tutor/students');
-            // Filter only cleared students
-            setStudents((data || []).filter(s => s.current_status === 'cleared'));
+            // Filter cleared students OR approved course drops
+            setStudents((data || []).filter(s => s.current_status === 'cleared' || s.year_drop_status === 'approved'));
         } catch (err) {
             console.error(err);
         } finally {
@@ -32,10 +32,15 @@ const ApprovedStudents = () => {
         }
     };
 
-    const handleRevoke = async (id) => {
-        if (!window.confirm('Are you sure you want to revoke this approval? The student will be moved back to the verification queue.')) return;
+    const handleRevoke = async (student) => {
+        const isYearDrop = student.year_drop_status === 'approved';
+        if (!window.confirm(`Are you sure you want to revoke this ${isYearDrop ? 'Course Drop' : 'TC'} approval?`)) return;
         try {
-            await API.post(`/tutor/final-approval`, { student_id: id, status: 'in_progress' });
+            if (isYearDrop && student.year_drop_id) {
+                await API.put(`/tutor/year-drops/${student.year_drop_id}`, { status: 'pending' });
+            } else {
+                await API.post(`/tutor/final-approval`, { student_id: student.id, status: 'in_progress' });
+            }
             fetchApproved();
         } catch (err) {
             alert(err.response?.data?.message || 'Failed to revoke approval');
@@ -100,7 +105,7 @@ const ApprovedStudents = () => {
                                         Verified
                                     </div>
                                     <button 
-                                        onClick={() => handleRevoke(student.id)}
+                                        onClick={() => handleRevoke(student)}
                                         className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-red-500/5 hover:bg-red-500/10 text-red-500 text-[10px] font-bold border border-red-500/10 transition-colors group/revoke"
                                     >
                                         <RotateCcw size={12} className="group-hover/revoke:-rotate-45 transition-transform" />
@@ -128,7 +133,7 @@ const ApprovedStudents = () => {
                             <div className="pt-4 mt-auto border-t border-slate-800 flex items-center">
                                 <div className="flex items-center gap-2 text-emerald-500 text-[10px] font-bold uppercase tracking-widest">
                                     <ShieldCheck size={14} />
-                                    <span>TC Authorized</span>
+                                    <span>{student.year_drop_status === 'approved' ? 'Course Drop Authorized' : 'TC Authorized'}</span>
                                 </div>
                             </div>
                         </div>
