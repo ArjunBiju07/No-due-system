@@ -40,9 +40,6 @@ const Navbar = ({ onMenuClick }) => {
                         <Link to="/" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
                             Home
                         </Link>
-                        <a href="#contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
-                            Contact
-                        </a>
                     </div>
                     
                     {/* User Profile Dropdown */}

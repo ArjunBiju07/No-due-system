@@ -14,6 +14,7 @@ import CreateAcademicYear from './pages/admin/CreateAcademicYear';
 import CourseDropApprovals from './pages/tutor/YearDropApprovals';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
 // Teacher Pages
 import TeacherHome from './pages/teacher/TeacherHome';
@@ -191,6 +192,7 @@ const AppContent = () => {
 
             <Route path="/" element={<HomeRedirect />} />
           </Routes>
+          <Footer />
         </main>
       </div>
     </div>
