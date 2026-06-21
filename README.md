@@ -1,5 +1,5 @@
 # No Due Clearance System
-
+this is original
 A full-stack web application for managing student clearance before issuing Transfer Certificates (TC) in colleges.
 
 ## Features
